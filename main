@@ -2,10 +2,14 @@
 #PBS -k o
 #PBS -l nodes=1:ppn=4,walltime=00:30:00,vmem=4gb
 
+dwi=$(jq -r .dwi config.json)
+bvals=$(jq -r .bvals config.json)
+bvecs=$(jq -r .bvecs config.json)
+
 mkdir -p output
 
 echo "Computing colored FA..."
-singularity exec -e docker://brainlife/dipy:1.4.1 python compute_cfa.py -dwi dwi.nii.gz -bvals dwi.bvals -bvecs dwi.bvecs
+singularity exec -e docker://brainlife/dipy:1.4.1 python compute_cfa.py -dwi $dwi -bvals $bvals -bvecs $bvecs
 if [ -f 'output/peaks.nii.gz' ]; then 
     echo "Colored FA computed."
 else 
