@@ -1,4 +1,5 @@
 {
-    "t1": "t1.nii.gz",
-    "outres": "1 1 1"
+    "dwi": "dwi.nii.gz",
+    "bvals": "dwi.bval",
+    "bvecs": "dwi.bvec"
 }
