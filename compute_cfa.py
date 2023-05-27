@@ -11,6 +11,7 @@
 # Author: Giulia Bertò
 # The University of Texas at Austin
 
+import argparse
 from dipy.io.image import load_nifti, save_nifti
 from dipy.io import read_bvals_bvecs
 from dipy.core.gradients import gradient_table
