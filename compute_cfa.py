@@ -35,5 +35,5 @@ if __name__ == '__main__':
     tenmodel = TensorModel(gtab)
     tenfit = tenmodel.fit(data)
 
-    save_nifti('outupt/peaks.nii.gz', tenfit.color_fa, affine)
+    save_nifti('output/peaks.nii.gz', tenfit.color_fa, affine)
 
