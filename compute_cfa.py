@@ -32,7 +32,6 @@ if __name__ == '__main__':
     bvals, bvecs = read_bvals_bvecs(args.bvals, args.bvecs)
     gtab = gradient_table(args.bvals, args.bvecs)
     
-    print("Fitting the tensor...")
     tenmodel = TensorModel(gtab)
     tenfit = tenmodel.fit(data)
 
