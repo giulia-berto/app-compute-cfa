@@ -12,7 +12,7 @@ echo "Computing colored FA..."
 singularity exec -e docker://brainlife/dipy:1.4.1 python compute_cfa.py -dwi $dwi -bvals $bvals -bvecs $bvecs
 
 echo "Masking colored FA..."
-singularity exec -e docker://brainlife/fsl:6.0.1 mask.sh $dwi
+singularity exec -e docker://brainlife/fsl:6.0.1 mask.sh $dwi cfa.nii.gz
 
 cp cfa_masked.nii.gz output/peaks.nii.gz
 
