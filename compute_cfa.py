@@ -31,9 +31,10 @@ if __name__ == '__main__':
     data, affine = load_nifti(args.dwi)
     bvals, bvecs = read_bvals_bvecs(args.bvals, args.bvecs)
     gtab = gradient_table(args.bvals, args.bvecs)
-
+    
+    print("Fitting the tensor...")
     tenmodel = TensorModel(gtab)
     tenfit = tenmodel.fit(data)
 
-    save_nifti('output/peaks.nii.gz', tenfit.color_fa, affine)
+    save_nifti('cfa.nii.gz', tenfit.color_fa, affine)
 
